@@ -1,103 +1,115 @@
-import Image from "next/image";
+import Link from "next/link";
+import Hero from "@/components/Hero";
+import StructuredData from "@/components/StructuredData";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Choerul Sofyan | Full Stack Developer",
+  description: "Freelance Full Stack Developer based in Bandung, Indonesia, specializing in modern web technologies",
+};
 
 export default function Home() {
+  const keySkills = [
+    "React.js", 
+    "TypeScript", 
+    "Laravel", 
+    "Node.js", 
+    "MySQL"
+  ];
+  
+  const personData = {
+    name: "Choerul Sofyan Muhammad Falih",
+    jobTitle: "Full Stack Developer",
+    url: "https://choerulsofyan.github.io",
+    sameAs: [
+      "https://github.com/choerulsofyan",
+      "https://www.linkedin.com/in/choerulsofyan/"
+    ],
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Bandung",
+      addressRegion: "West Java",
+      addressCountry: "Indonesia"
+    },
+    email: "choerulsofyanmf@gmail.com",
+    telephone: "+6282118178993",
+    knowsAbout: ["Web Development", "React", "Next.js", "TypeScript", "Node.js", "Laravel"]
+  };
+  
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main>
+      <StructuredData type="Person" data={personData} />
+      <Hero />
+      
+      <section className="py-16 bg-muted/50 dark:bg-muted/10">
+        <div className="container mx-auto px-4">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Key Skills</h2>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
+            {keySkills.map((skill, index) => (
+              <div 
+                key={skill}
+                className="group relative overflow-hidden bg-white dark:bg-card rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
+              >
+                <div className="absolute inset-0 bg-accent-blue opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
+                <div className="p-4 text-center">
+                  <span className="inline-block text-4xl mb-2">
+                    {index === 0 ? "⚛️" : index === 1 ? "🔷" : index === 2 ? "🚀" : index === 3 ? "🟢" : "🔍"}
+                  </span>
+                  <h3 className="font-medium text-primary">{skill}</h3>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Link 
+              href="/skills"
+              className="inline-flex items-center gap-2 text-accent-blue font-medium hover:underline transition-colors"
+            >
+              View all skills
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+      </section>
+      
+      <section className="py-16 bg-white dark:bg-card">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-2xl md:text-3xl font-semibold mb-6">Let&apos;s Work Together</h2>
+          <p className="text-secondary max-w-2xl mx-auto mb-8">
+            I&apos;m currently available for freelance projects. If you&apos;re looking for a developer to bring your ideas to life, let&apos;s connect.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Link 
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent-blue text-white font-medium rounded-md hover:bg-opacity-90 transition-colors"
+            >
+              Get in Touch
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </Link>
+            <Link 
+              href="/resume"
+              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-background text-accent-blue dark:text-accent-blue font-medium rounded-md border border-accent-blue hover:bg-accent-blue hover:text-white dark:hover:bg-accent-blue dark:hover:text-white transition-colors"
+            >
+              View Resume
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }

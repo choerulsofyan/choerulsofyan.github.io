@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG to PNG Converter</title>
+</head>
+<body>
+  <div>
+    <h1>SVG to PNG Converter</h1>
+    <p>This tool converts the OG image SVG to PNG format for better compatibility</p>
+    <button id="convertBtn">Convert SVG to PNG</button>
+    <div id="result" style="margin-top: 20px;"></div>
+  </div>
+
+  <script>
+    document.getElementById('convertBtn').addEventListener('click', async () => {
+      try {
+        // Fetch the SVG file
+        const response = await fetch('/public/og-image.svg');
+        const svgText = await response.text();
+        
+        // Create a Blob from the SVG
+        const svgBlob = new Blob([svgText], { type: 'image/svg+xml' });
+        const url = URL.createObjectURL(svgBlob);
+        
+        // Create an Image element to load the SVG
+        const img = new Image();
+        img.onload = () => {
+          // Create a canvas with the same dimensions as the SVG
+          const canvas = document.createElement('canvas');
+          canvas.width = 1200;
+          canvas.height = 630;
+          
+          // Draw the image on the canvas
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(img, 0, 0);
+          
+          // Convert canvas to PNG
+          const pngUrl = canvas.toDataURL('image/png');
+          
+          // Display the result
+          const resultDiv = document.getElementById('result');
+          resultDiv.innerHTML = `
+            <p>Conversion complete! Right-click the image below and select "Save Image As..." to download.</p>
+            <img src="${pngUrl}" alt="Converted PNG" style="max-width: 100%; height: auto;">
+            <p><a href="${pngUrl}" download="og-image.png">Download PNG</a></p>
+          `;
+          
+          // Clean up
+          URL.revokeObjectURL(url);
+        };
+        
+        img.src = url;
+      } catch (error) {
+        console.error('Error converting SVG to PNG:', error);
+        document.getElementById('result').innerHTML = `<p>Error: ${error.message}</p>`;
+      }
+    });
+  </script>
+</body>
+</html>

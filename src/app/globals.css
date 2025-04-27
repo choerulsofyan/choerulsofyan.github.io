@@ -1,26 +1,128 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --radius: 0.625rem;
+  /* Custom colors as specified in the PRD */
+  --primary: #000000; /* Black */
+  --secondary: #1F2A44; /* Dark Gray */
+  --accent-blue: #0A2647; /* Deep Blue */
+  --accent-burgundy: #4A0E0E; /* Burgundy */
+  --background: #F5F5F5; /* Off-White */
+  
+  /* System colors */
+  --foreground: var(--primary);
+  --card: white;
+  --card-foreground: var(--secondary);
+  --popover: white;
+  --popover-foreground: var(--secondary);
+  --primary-foreground: white;
+  --secondary-foreground: white;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --accent: var(--accent-blue);
+  --accent-foreground: white;
+  --destructive: #ef4444;
+  --destructive-foreground: white;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: var(--accent-blue);
+}
+
+.dark {
+  --primary: #FFFFFF; /* White */
+  --secondary: #E2E8F0; /* Light Gray */
+  --accent-blue: #60A5FA; /* Lighter Blue */
+  --accent-burgundy: #FCA5A5; /* Lighter Red */
+  --background: #1A202C; /* Dark Gray */
+  
+  /* System colors */
+  --foreground: var(--primary);
+  --card: #2D3748; /* Darker Gray */
+  --card-foreground: var(--secondary);
+  --popover: #2D3748;
+  --popover-foreground: var(--secondary);
+  --primary-foreground: #1A202C;
+  --secondary-foreground: #1A202C;
+  --muted: #374151;
+  --muted-foreground: #9CA3AF;
+  --accent: var(--accent-blue);
+  --accent-foreground: #1A202C;
+  --destructive: #F87171;
+  --destructive-foreground: #1A202C;
+  --border: #4B5563;
+  --input: #4B5563;
+  --ring: var(--accent-blue);
+}
+
+/* Dark mode support added for better user experience */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  * {
+    border-color: var(--border);
+    outline-color: color-mix(in srgb, var(--ring) 50%, transparent);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-inter);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  a {
+    color: var(--accent-blue);
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+  a:hover {
+    opacity: 0.9;
+  }
 }
