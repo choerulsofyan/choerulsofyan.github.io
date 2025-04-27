@@ -334,11 +334,11 @@ export default function ResumePage() {
                                 </li>
                                 <li>
                                     Integrated the developed Laravel e-commerce
-                                    app seamlessly with the company's existing
+                                    app seamlessly with the company&apos;s existing
                                     web app
                                 </li>
                                 <li>
-                                    Collaborated closely with the company's
+                                    Collaborated closely with the company&apos;s
                                     marketing team to understand business
                                     requirements
                                 </li>
@@ -360,7 +360,7 @@ export default function ResumePage() {
                             <ul className="list-disc list-inside text-secondary space-y-1">
                                 <li>
                                     Developed a Service App to seamlessly
-                                    integrate data between the company's desktop
+                                    integrate data between the company&apos;s desktop
                                     app and web app
                                 </li>
                                 <li>
