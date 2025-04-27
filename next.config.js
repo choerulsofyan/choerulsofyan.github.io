@@ -1,22 +1,24 @@
 /** @type {import('next').NextConfig} */
 
+const isProduction = process.env.NODE_ENV === 'production';
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
 const nextConfig = {
   output: 'export',
   images: {
     unoptimized: true, // Required for static export
   },
-  basePath: '',
+  basePath,
   trailingSlash: true,
   // Optimize for production
-  // Reduce bundle size
   reactStrictMode: true,
   // Improve performance
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: isProduction,
   },
-  // For GitHub Pages, we don't need assetPrefix since we're using a custom domain or username.github.io format
-  // When using username.github.io repository, the assets are served from the root
-  assetPrefix: '',
+  // When using username.github.io repository, the assets should be served from the root
+  // This ensures CSS and other assets load correctly
+  assetPrefix: basePath,
 };
 
 module.exports = nextConfig;
