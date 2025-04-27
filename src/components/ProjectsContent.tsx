@@ -50,7 +50,7 @@ export default function ProjectsContent({ projects }: ProjectsContentProps) {
 
   return (
     <div className="container mx-auto px-4 py-16">
-      <StructuredData type="BreadcrumbList" data={projectListData} />
+      {typeof window !== 'undefined' && <StructuredData type="BreadcrumbList" data={projectListData} />}
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}

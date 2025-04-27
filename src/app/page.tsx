@@ -9,14 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
-  const keySkills = [
-    "React.js", 
-    "TypeScript", 
-    "Laravel", 
-    "Node.js", 
-    "MySQL"
-  ];
-  
+  // Structured data for SEO
   const personData = {
     name: "Choerul Sofyan Muhammad Falih",
     jobTitle: "Full Stack Developer",
@@ -33,81 +26,172 @@ export default function Home() {
     },
     email: "choerulsofyanmf@gmail.com",
     telephone: "+6282118178993",
-    knowsAbout: ["Web Development", "React", "Next.js", "TypeScript", "Node.js", "Laravel"]
+    knowsAbout: ["Web Development", "React", "TypeScript", "Laravel", "Node.js", "MySQL"]
   };
+  
+  // Featured projects for homepage
+  const featuredProjects = [
+    {
+      title: "E-Commerce Platform",
+      description: "A full-stack e-commerce solution with product management, cart functionality, and secure checkout.",
+      tech: "React.js, Redux, TypeScript",
+      color: "bg-accent-blue/10",
+      icon: "🛒"
+    },
+    {
+      title: "Corporate Dashboard",
+      description: "Real-time analytics dashboard for sales teams with data visualization and reporting features.",
+      tech: "React.js, TypeScript, MySQL",
+      color: "bg-[#4A0E0E]/10",
+      icon: "📊"
+    }
+  ];
   
   return (
     <main>
-      <StructuredData type="Person" data={personData} />
+      {typeof window !== 'undefined' && <StructuredData type="Person" data={personData} />}
       <Hero />
       
-      <section className="py-16 bg-muted/50 dark:bg-muted/10">
+      {/* Experience Highlights */}
+      <section className="py-20 bg-white dark:bg-card/30">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-8 text-center">Key Skills</h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-4xl mx-auto">
-            {keySkills.map((skill, index) => (
-              <div 
-                key={skill}
-                className="group relative overflow-hidden bg-white dark:bg-card rounded-lg shadow-md hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <div className="absolute inset-0 bg-accent-blue opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
-                <div className="p-4 text-center">
-                  <span className="inline-block text-4xl mb-2">
-                    {index === 0 ? "⚛️" : index === 1 ? "🔷" : index === 2 ? "🚀" : index === 3 ? "🟢" : "🔍"}
-                  </span>
-                  <h3 className="font-medium text-primary">{skill}</h3>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          <div className="mt-12 text-center">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-2">Experience Highlights</h2>
+              <p className="text-secondary max-w-xl">Over 8 years of expertise in full-stack development</p>
+            </div>
             <Link 
-              href="/skills"
-              className="inline-flex items-center gap-2 text-accent-blue font-medium hover:underline transition-colors"
+              href="/experience"
+              className="mt-4 md:mt-0 inline-flex items-center gap-2 text-accent-blue hover:underline font-medium"
             >
-              View all skills
+              View full experience
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M5 12h14"></path>
                 <path d="m12 5 7 7-7 7"></path>
               </svg>
             </Link>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Experience Card 1 */}
+            <div className="bg-card dark:bg-card/60 p-6 rounded-xl shadow-sm border border-border/30 hover:shadow-md transition-shadow">
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-lg font-semibold text-accent-blue">Frontend Developer</h3>
+                <span className="text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded-full">2022-2024</span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-2">Identiticoders Pte Ltd (Remote)</p>
+              <p className="text-secondary mb-4">Developed dynamic and interactive user interfaces using React.js, Redux, and TypeScript.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">React</span>
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">Redux</span>
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">TypeScript</span>
+              </div>
+            </div>
+            
+            {/* Experience Card 2 */}
+            <div className="bg-card dark:bg-card/60 p-6 rounded-xl shadow-sm border border-border/30 hover:shadow-md transition-shadow">
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-lg font-semibold text-accent-blue">Frontend Developer</h3>
+                <span className="text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded-full">2021-2022</span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-2">Geekseat Indonesia (Remote)</p>
+              <p className="text-secondary mb-4">Built dynamic and responsive user interfaces for multinational clients using React.js and TypeScript.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">React</span>
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">TypeScript</span>
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">UI/UX</span>
+              </div>
+            </div>
+            
+            {/* Experience Card 3 */}
+            <div className="bg-card dark:bg-card/60 p-6 rounded-xl shadow-sm border border-border/30 hover:shadow-md transition-shadow">
+              <div className="flex justify-between items-start mb-4">
+                <h3 className="text-lg font-semibold text-accent-blue">Full-Stack Developer</h3>
+                <span className="text-sm font-medium text-muted-foreground bg-muted px-2 py-1 rounded-full">2019-2020</span>
+              </div>
+              <p className="text-sm text-muted-foreground mb-2">Bellezkin (On Site)</p>
+              <p className="text-secondary mb-4">Developed custom e-commerce application using Laravel and integrated with existing systems.</p>
+              <div className="flex flex-wrap gap-2">
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">Laravel</span>
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">MVC</span>
+                <span className="text-xs bg-accent-blue/10 text-accent-blue px-2 py-1 rounded-full">Livewire</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       
-      <section className="py-16 bg-white dark:bg-card">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl md:text-3xl font-semibold mb-6">Let&apos;s Work Together</h2>
-          <p className="text-secondary max-w-2xl mx-auto mb-8">
-            I&apos;m currently available for freelance projects. If you&apos;re looking for a developer to bring your ideas to life, let&apos;s connect.
-          </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+      {/* Featured Projects */}
+      <section className="py-20 bg-muted/30 dark:bg-muted/5">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-2">Featured Projects</h2>
+              <p className="text-secondary max-w-xl">Some of my recent work</p>
+            </div>
             <Link 
-              href="/contact"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent-blue text-white font-medium rounded-md hover:bg-opacity-90 transition-colors"
+              href="/projects"
+              className="mt-4 md:mt-0 inline-flex items-center gap-2 text-accent-blue hover:underline font-medium"
             >
-              Get in Touch
+              View all projects
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                <polyline points="22,6 12,13 2,6"></polyline>
-              </svg>
-            </Link>
-            <Link 
-              href="/resume"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-white dark:bg-background text-accent-blue dark:text-accent-blue font-medium rounded-md border border-accent-blue hover:bg-accent-blue hover:text-white dark:hover:bg-accent-blue dark:hover:text-white transition-colors"
-            >
-              View Resume
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
               </svg>
             </Link>
           </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {featuredProjects.map((project) => (
+              <div 
+                key={project.title}
+                className="bg-white dark:bg-card p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow border border-border/30 flex flex-col h-full"
+              >
+                <div className="mb-6">
+                  <span className="text-4xl">{project.icon}</span>
+                </div>
+                <h3 className="text-xl font-bold mb-3">{project.title}</h3>
+                <p className="text-secondary mb-4 flex-grow">{project.description}</p>
+                <div className="mt-auto">
+                  <div className="mb-4">
+                    <span className={`inline-block text-sm font-medium ${project.color} text-primary px-3 py-1 rounded-md`}>
+                      {project.tech}
+                    </span>
+                  </div>
+                  <Link 
+                    href="/projects"
+                    className="inline-flex items-center gap-1 text-accent-blue hover:underline text-sm font-medium"
+                  >
+                    View details
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                  </Link>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Contact CTA - Clean and not duplicated */}
+      <section className="py-20 bg-white dark:bg-card/30">
+        <div className="container mx-auto px-4 text-center max-w-3xl">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to start your project?</h2>
+          <p className="text-secondary mb-10">
+            I&apos;m currently available for freelance projects. If you&apos;re looking for a developer to bring your ideas to life, I&apos;d love to discuss how we can work together.
+          </p>
+          <Link 
+            href="/contact"
+            className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-accent-blue text-white font-medium rounded-md hover:bg-accent-blue/90 transition-colors text-lg"
+          >
+            Let's talk about your project
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </Link>
         </div>
       </section>
     </main>
