@@ -1,0 +1,40 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#0A2647"/>
+  
+  <!-- Decorative elements -->
+  <rect x="0" y="0" width="20" height="630" fill="#1F2A44"/>
+  <rect x="1180" y="0" width="20" height="630" fill="#1F2A44"/>
+  <rect x="0" y="0" width="1200" height="20" fill="#1F2A44"/>
+  <rect x="0" y="610" width="1200" height="20" fill="#1F2A44"/>
+  
+  <!-- Name and title -->
+  <text x="600" y="240" font-family="Inter, sans-serif" font-size="64" font-weight="700" fill="white" text-anchor="middle">Choerul Sofyan Muhammad Falih</text>
+  <text x="600" y="320" font-family="Inter, sans-serif" font-size="36" font-weight="400" fill="#E5E7EB" text-anchor="middle">Full Stack Developer</text>
+  
+  <!-- Tech stack badges -->
+  <g transform="translate(300, 400)">
+    <!-- React -->
+    <rect x="0" y="0" width="100" height="40" rx="20" fill="#61DAFB" fill-opacity="0.2"/>
+    <text x="50" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#61DAFB" text-anchor="middle">React</text>
+    
+    <!-- TypeScript -->
+    <rect x="120" y="0" width="120" height="40" rx="20" fill="#3178C6" fill-opacity="0.2"/>
+    <text x="180" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#3178C6" text-anchor="middle">TypeScript</text>
+    
+    <!-- Next.js -->
+    <rect x="260" y="0" width="100" height="40" rx="20" fill="#FFFFFF" fill-opacity="0.2"/>
+    <text x="310" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#FFFFFF" text-anchor="middle">Next.js</text>
+    
+    <!-- Laravel -->
+    <rect x="380" y="0" width="100" height="40" rx="20" fill="#FF2D20" fill-opacity="0.2"/>
+    <text x="430" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#FF2D20" text-anchor="middle">Laravel</text>
+    
+    <!-- Node.js -->
+    <rect x="500" y="0" width="100" height="40" rx="20" fill="#339933" fill-opacity="0.2"/>
+    <text x="550" y="25" font-family="Inter, sans-serif" font-size="16" font-weight="500" fill="#339933" text-anchor="middle">Node.js</text>
+  </g>
+  
+  <!-- Website URL -->
+  <text x="600" y="500" font-family="Inter, sans-serif" font-size="24" font-weight="400" fill="#E5E7EB" text-anchor="middle">choerulsofyan.github.io</text>
+</svg>

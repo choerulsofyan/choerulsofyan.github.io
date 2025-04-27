@@ -1,0 +1,21 @@
+{
+  "name": "Choerul Sofyan | Full Stack Developer",
+  "short_name": "Choerul Sofyan",
+  "description": "Full Stack Developer specializing in building modern web applications with React, Next.js, and Node.js",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F5F5F5",
+  "theme_color": "#0A2647",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml"
+    }
+  ]
+}
